@@ -1,7 +1,7 @@
 <%= form_with(model: address) do |form| %>
   <%= render "shared/form/error_msg", model: address %>
 
-  <%= render 'shared/form/select_attr', form: form, element: :person,
+  <%= render 'shared/form/select_attr', form: form, element: :person_id,
               collection: Person.select_collection,
               selected: address.person_id,
               blank: true,
