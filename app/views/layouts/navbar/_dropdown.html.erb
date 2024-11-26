@@ -1,0 +1,17 @@
+<div class="group inline-block hover:block relative">
+  <button class="p-4 text-lg text-black font-sans bg-gray-100 rounded-md border-none"><%= btn_label %></button>
+  <div class="hidden group-hover:block absolute min-w-full z-10 bg-gray-300">
+    <% items.each do |item| %>
+        <% case item[:type] %>
+        <% when :link %>
+          <%= render "layouts/navbar/link", link: item %>
+        <% when :deleter %>
+          <%= render "layouts/navbar/deleter", link: item %>
+        <% when :divider %>
+          <%= render "layouts/navbar/divider" %>
+        <% else %>
+          "The item type was: #{ item[:type] }."
+        <% end %>
+    <% end %>
+  </div>
+</div>

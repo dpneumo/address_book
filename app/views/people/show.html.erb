@@ -1,0 +1,38 @@
+<div class="flex flex-col items-center justify-center">
+  <p style="color: green" class="mb-4"><%= notice %></p>
+
+  <div class='grid grid-rows-auto'>
+    <div class='row-start-1 max-h-fit'>
+
+      <div class='grid auto-rows-min grid-rows-auto'>
+        <header class='row-start-1'>
+          <h1 class="mb-2 text-2xl font-sans font-bold">Person Detail</h1>
+        </header>
+
+        <div class='row-start-2 h-fit mb-3'>
+          <%= render "shared/attrib_wide", attribute: @person.fullname, label: 'Person' %>
+        </div>
+
+        <div class='row-start-3 h-fit mb-3'>
+          <%= render "shared/attrib_wide", attribute: @person.nickname, label: 'Nickname' %>
+        </div>
+
+        <div class='row-start-4 h-fit mb-3'>
+          <%= render "shared/attrib_wide", attribute: @person.birth_date, label: 'Birthdate' %>
+        </div>
+
+        <div class='row-start-5 h-fit mb-3'>
+          <%= render "shared/attrib_wide", attribute: @person.note, label: 'Note' %>
+        </div>
+      </div>
+    </div>
+
+    <div class='row-start-2 h-fit my-3'>
+    <%= link_to "Edit this person", edit_person_path(@person) %> |
+    <%= link_to "Back to people", people_path %>
+    <br><br>
+    <%= button_to "Destroy this person", @address, method: :delete %>
+      </div>
+  </div>
+
+</div>

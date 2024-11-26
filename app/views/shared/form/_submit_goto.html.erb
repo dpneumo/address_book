@@ -1,0 +1,8 @@
+  <% info = mdl.element_info[elem] %>
+  <div class="mx-4 mb-5 w-full">
+    <%= mdl.form.submit( info[:subtxt],
+          class: "mx-4 submit-button font-sans" ) %>
+
+    <%= link_to info[:gototxt], info[:path], 
+          class: "mx-4 text-gray-900 text-sm font-semibold leading-6 link-hover" %>  
+  </div>

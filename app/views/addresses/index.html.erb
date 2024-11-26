@@ -1,0 +1,23 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Addresses" %>
+
+<div class='flex flex-col sm:flex-row items-center justify-center'>
+  <div class='mb-5 mx-2'>
+    <div class="flex flex-row justify-between">
+      <h1 class="font-sans font-bold text-2xl">Addresses</h1>
+    </div>
+
+    <div id="addresses">
+      <%= render "shared/table", collection: @addresses, head: 'head', item_row: 'row' %>
+    </div>
+
+    <br>
+    <%== pagy_nav(@pagy) if @pagy.pages > 1 %>
+
+    <hr class="mt-1 border-1 border-gray-700" />
+    <br>
+
+    <%= link_to "New address", new_address_path %>
+  </div>
+</div>

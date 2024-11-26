@@ -1,0 +1,13 @@
+<div class='grid grid-cols-2 gap-3'>
+  <% attributes.each do |a| %>
+  <div class='w-1/4'>
+    <dl>
+      <div class='grid grid-cols-[105px_100px]'>
+        <dt class='mx-2 text-gray-700 text-base font-sans font-bold'><%= a[:label] %>: </dt>
+        <dd class='text-gray-700 text-base font-sans'><%= a[:attribute] %></dd>
+      </div>
+    </dl>
+  </div>
+  <% end %>
+</div>
+

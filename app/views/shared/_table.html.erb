@@ -1,0 +1,19 @@
+<div class="flex flex-col max-w-full mx-auto">
+  <div class="inline-block relative py-2 overflow-x-auto">
+
+    <table class="w-full text-xl font-medium">
+      <thead class="bg-gray-400 font-sans font-medium dark:border-neutral-800 dark:bg-neutral-300">
+        <%= render head %>
+      </thead>
+      <tbody>
+        <% if collection %>
+          <% collection.each_with_index do |item, i| %>
+            <% background = i.even? ? 'bg-white' : 'bg-gray-200' %>
+            <%= render item_row, item: item, background: background %>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+
+  </div>
+</div>

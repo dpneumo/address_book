@@ -1,0 +1,9 @@
+  <tr class='<%= background %>' >
+    <td class='td-pad'>
+      <%= link_to item.sortable_name, person_path(item), class: "td-emphasized link-hover" %>
+    </td>
+    <td class='td-pad td-base'><%= item.nickname %></td>
+    <td class='td-pad td-base'><%= item.birth_date %></td>
+    <td class='td-pad td-base'><%= item.note_hint %></td>
+</tr>
+

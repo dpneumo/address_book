@@ -1,0 +1,32 @@
+<%= form_with(model: address) do |form| %>
+  <%= render "shared/form/error_msg", model: address %>
+
+  <div class="mx-4 mb-5 min-w-0">
+    <%= form.label :person %>
+    <%= form.select( :person, Person.all,
+          { include_blank: false,
+            prompt: 'Choose Person',
+            selected: @address.person_id
+          },
+          { class: "block mt-2 py-3 pl-3 text-gray-900 font-medium rounded-md border-0 shadow ring",
+            disabled: true
+          }
+        )
+    %>
+  </div>
+
+  <%= render 'shared/form/text_attr', form: form, element: :street1, maxw: 100 %>
+  <%= render 'shared/form/text_attr', form: form, element: :street2, maxw: 100 %>
+
+  <div class="flex flex-col md:flex-row">
+    <%= render 'shared/form/text_attr', form: form, element: :city, maxw: 48 %>
+    <%= render 'shared/form/text_attr', form: form, element: :state, maxw: 14 %>
+    <%= render 'shared/form/text_attr', form: form, element: :zip, maxw: 32 %>
+  </div>
+
+  <%= render 'shared/form/text_attr', form: form, element: :preferred, maxw: 16 %>
+
+  <div class="ml-4">
+  <%= form.submit %>
+<div>
+<% end %>

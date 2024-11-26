@@ -1,0 +1,9 @@
+  <% info = mdl.element_info[elem] %>
+  <div class="mx-4 mb-5 w-full">
+    <label  for=<%= info[:lblfor] %>
+            class="form-field-label">
+      <%= info[:lbltxt] %>
+      <%= mdl.form.date_field( elem, 
+            class: "block mt-2 p-3 text-gray-900 font-medium rounded-md border-0 shadow ring placeholder:text-gray-400" ) %>
+    </label>
+  </div>

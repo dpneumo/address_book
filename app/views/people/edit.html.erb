@@ -1,0 +1,14 @@
+<% content_for :title, "Editing Person" %>
+
+<div class="max-w-4xl mb-5">
+  <h1 class="mb-4 text-2xl font-sans font-extrabold">Edit Person</h1>
+
+  <%= render "form", person: @person %>
+
+  <br>
+
+  <div>
+    <%= link_to "Show this person", @person %> |
+    <%= link_to "Back to people", people_path %>
+  </div>
+</div>

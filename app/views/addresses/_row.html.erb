@@ -1,0 +1,9 @@
+  <tr class='<%= background %>' >
+    <td class='td-base td-pad'>
+      <%= link_to item.person.fullname, person_path(item.person_id), class: "td-emphasized link-hover" %>
+    </td>
+    <td class='td-base td-pad'>
+      <%= link_to item.complete_address, address_path(item.id), class: "td-emphasized link-hover" %>
+    </td>
+    <td class='td-base td-pad'><%= item.primary %></td>
+  </tr>

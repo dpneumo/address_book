@@ -1,0 +1,24 @@
+  <% info = mdl.element_info[elem] %>
+  <% disable = editing && info[:disable_edit] %>
+  <div class="mx-4 mb-5 min-w-0">  
+    <label  for=<%= info[:lblfor] %> 
+            class="form-field-label">
+      <%= info[:lbltxt] %>
+
+      <% if disable %>
+        <div class='disabled-sel-field ring'><%= mdl.assoc_name %></div>
+        <%= mdl.form.hidden_field(elem) %>
+      <% else %>
+        <%= mdl.form.select( elem, info[:collection],
+              { include_blank: info[:blank],
+                prompt: info[:prompt],
+                selected: mdl.send(elem) || info[:default]
+              },
+              { class: "block mt-2 py-3 pl-3 text-gray-900 font-medium rounded-md border-0 shadow ring",
+                disabled: false
+              }
+            ) %>
+      <% end %>
+
+    </label>
+  </div>

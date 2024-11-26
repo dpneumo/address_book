@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.link-hover {
+  @apply underline hover:text-red-600;
+}
+
+.submit-focused {
+  @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600;
+}
+
+.submit-button {
+  @apply px-3 py-2 rounded-md text-white text-sm font-sans font-semibold shadow-sm bg-indigo-600 hover:bg-indigo-500 submit-focused;
+}
+
+.td-base {
+  @apply text-base text-gray-500 font-sans whitespace-nowrap;
+}
+
+.td-pad {
+  @apply py-1.5 px-3 mx-4;
+}
+
+.td-emphasized {
+  @apply text-left text-base text-gray-900 font-sans font-medium whitespace-nowrap;
+}
+
+.th-base {
+  @apply text-left text-base text-gray-900 font-sans font-semibold;
+}
+
+.th-pad {
+  @apply py-2 px-3 mx-4;
+}
+
+.ring {
+  @apply ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600;
+}
+
+.checkbox {
+  @apply block w-full rounded-md border-0 py-1.5 text-gray-900 placeholder:text-gray-400 sm:text-sm;
+}
+
+.base-field {
+  @apply block w-full min-w-full mt-2 p-3 text-gray-900 font-sans font-medium rounded-md border-0 shadow;
+}
+
+.disabled-sel-field {
+  @apply base-field px-3 py-4 bg-gray-200;
+}
+
+.disabled-txt-field {
+  @apply base-field px-3 py-4 bg-gray-200;
+}
+
+.form-field-label {
+  @apply block pl-3 pt-1 font-sans font-semibold text-sm text-gray-900 leading-3;
+}

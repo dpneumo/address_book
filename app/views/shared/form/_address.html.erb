@@ -1,0 +1,33 @@
+<div class="flex flex-col md:flex-row" data-controller="street">
+  <% if editing && mdl.element_info[:house_id][:disable_edit]  %>
+    <div class="mx-4 mb-5 min-w-0">
+      <label  class="form-field-label">
+        House
+        <div class='disabled-sel-field ring'><%= mdl.house_address %></div>
+        <%= mdl.form.hidden_field(:house_id) %>
+      </label>
+    </div>
+
+  <% else %>
+    <div class="mx-4 mb-5 min-w-0">
+      <label  class="form-field-label">
+        Street
+        <%= mdl.form.select :street, mdl.street_names,
+                  { selected: mdl.house_street },
+                  { class: "block mt-2 py-3 pl-3 text-gray-900 font-medium rounded-md border-0 shadow ring",
+                    data: { action: "change->street#change" } } %>
+      </label>
+    </div>
+    <div class="mx-4 mb-5 min-w-0">
+      <label  class="form-field-label">
+        Number
+        <%= mdl.form.select :house_id, mdl.street_numbers(mdl.house_street),
+              { prompt: 'Select Number',
+                selected: mdl.house_number },
+              { class: "block mt-2 py-3 pl-3 text-gray-900 font-medium rounded-md border-0 shadow ring",
+                data: { street_target: 'houseSelect' } } %>
+      </label>
+    </div>
+
+  <% end %>
+</div>
