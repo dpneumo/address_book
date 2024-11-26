@@ -8,7 +8,6 @@ class Address < ApplicationRecord
   validates :city,      presence: true
   validates :state,     presence: true
   validates :zip,       presence: true
-  validates :preferred, presence: true
 
   def primary
     preferred ? 'Yes' : ''
