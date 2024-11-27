@@ -10,15 +10,11 @@
         </header>
 
         <div class='row-start-2 h-fit mb-3'>
-          <%= render "shared/attrib_wide", attribute: @person.fullname, label: 'Person' %>
+          <%= render "shared/attrib_wide", attribute: @person.addressee, label: 'Person' %>
         </div>
 
         <div class='row-start-3 h-fit mb-3'>
-          <%= render "shared/attrib_wide", attribute: @person.nickname, label: 'Nickname' %>
-        </div>
-
-        <div class='row-start-4 h-fit mb-3'>
-          <%= render "shared/attrib_wide", attribute: @person.birth_date, label: 'Birthdate' %>
+          <%= render "shared/attrib_wide", attribute: @person.complete_address, label: 'Address' %>
         </div>
 
         <div class='row-start-5 h-fit mb-3'>

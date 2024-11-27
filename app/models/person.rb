@@ -1,31 +1,23 @@
 # frozen_string_literal: true
 
 class Person < ApplicationRecord
-  has_many :addresses, -> { order(state: :asc, city: :asc, street: :asc, number: :asc) }
+  validates :addressee, presence: true
+  validates :street,  presence: true
+  validates :city,  presence: true
+  validates :state,  presence: true
+  validates :zip,  presence: true
 
-  validates :firstname, presence: true
-  validates :lastname,  presence: true
-  validates :birthyear,  numericality: { only_integer: true }
-  validates :birthmonth, numericality: { only_integer: true }
-  validates :birthday,   numericality: { only_integer: true }
-
-  delegate  :fullname, :sortable_name, :informal_name, :formal_name, to: :person_name
-
-  def self.select_collection
-    order(:lastname, :firstname, :middlename).map {|p| [p.id.to_s + " " + p.sortable_name, p.id] }
+  def complete_address
+    "#{street}, #{city}, #{state} #{zip}"
   end
 
-  def self.ransackable_attributes(auth_object = nil)
-    ["id", "firstname", "lastname", "middlename", "nickname", "note", "created_at", "updated_at"]
+  def complete_address_hint
+    ca = complete_address
+    ca.length > 20 ? ca.slice(0..19)+'...' : ca
   end
 
-  def person_name
-    PersonName.new(firstname, middlename, lastname, nickname)
-  end
-
-  def birth_date
-    return '' unless birthyear && birthmonth && birthday
-    Date.new(birthyear, birthmonth, birthday).to_s
+  def address_label
+    "#{addressee}\n#{street}\n#{city}, #{state}  #{zip}"
   end
 
   def note_hint

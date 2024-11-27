@@ -1,15 +1,13 @@
 <%= form_with(model: person, local: true) do |form| %>
   <%= render "shared/form/error_msg", model: person %>
 
-  <%= render 'shared/form/text_attr', form: form, element: :firstname, maxw: 100 %>
-  <%= render 'shared/form/text_attr', form: form, element: :middlename, maxw: 100 %>
-  <%= render 'shared/form/text_attr', form: form, element: :lastname, maxw: 100 %>
-  <%= render 'shared/form/text_attr', form: form, element: :nickname, maxw: 100 %>
+  <%= render 'shared/form/text_attr', form: form, element: :addressee, maxw: 100 %>
+  <%= render 'shared/form/text_attr', form: form, element: :street, maxw: 100 %>
 
   <div class="flex flex-col md:flex-row">
-    <%= render 'shared/form/text_attr', form: form, element: :birthday, maxw: 20 %>
-    <%= render 'shared/form/text_attr', form: form, element: :birthmonth, maxw: 20 %>
-    <%= render 'shared/form/text_attr', form: form, element: :birthyear, maxw: 20 %>
+    <%= render 'shared/form/text_attr', form: form, element: :city, maxw: 48 %>
+    <%= render 'shared/form/text_attr', form: form, element: :state, maxw: 14 %>
+    <%= render 'shared/form/text_attr', form: form, element: :zip, maxw: 32 %>
   </div>
 
   <%= render 'shared/form/textarea_attr', form: form, element: :note, size: "100x3" %>
@@ -17,4 +15,4 @@
   <div class="ml-4">
     <%= form.submit %>
   <div>
-<% end %> <!-- form -->
+<% end %>
