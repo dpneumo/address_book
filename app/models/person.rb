@@ -5,6 +5,9 @@ class Person < ApplicationRecord
 
   validates :firstname, presence: true
   validates :lastname,  presence: true
+  validates :birthyear,  numericality: { only_integer: true }
+  validates :birthmonth, numericality: { only_integer: true }
+  validates :birthday,   numericality: { only_integer: true }
 
   delegate  :fullname, :sortable_name, :informal_name, :formal_name, to: :person_name
 
@@ -21,6 +24,7 @@ class Person < ApplicationRecord
   end
 
   def birth_date
+    return '' unless birthyear && birthmonth && birthday
     Date.new(birthyear, birthmonth, birthday).to_s
   end
 
