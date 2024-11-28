@@ -1,7 +1,7 @@
 <%= form_with(model: person, local: true) do |form| %>
   <%= render "shared/form/error_msg", model: person %>
 
-  <%= render 'shared/form/text_attr', form: form, element: :addressee, maxw: 100 %>
+  <%= render 'shared/form/text_attr', form: form, element: :addressee, maxw: 100, autofocus: true %>
   <%= render 'shared/form/text_attr', form: form, element: :street, maxw: 100 %>
 
   <div class="flex flex-col md:flex-row">

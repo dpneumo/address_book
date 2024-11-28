@@ -24,7 +24,7 @@
     </div>
 
     <div class='row-start-2 h-fit my-3'>
-    <%= link_to "Edit this person", edit_person_path(@person), class: "td-emphasized link-hover" %> |
+    <%= link_to "Edit this person", edit_person_path(@person), class: "td-emphasized link-hover", autofocus: true %> |
     <%= link_to "Back to people", people_path, class: "td-emphasized link-hover" %>
     <br><br>
     <%= button_to "Delete", @address, method: :delete, class: "td-emphasized link-hover" %>
