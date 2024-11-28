@@ -24,10 +24,10 @@
     </div>
 
     <div class='row-start-2 h-fit my-3'>
-    <%= link_to "Edit this person", edit_person_path(@person) %> |
-    <%= link_to "Back to people", people_path %>
+    <%= link_to "Edit this person", edit_person_path(@person), class: "td-emphasized link-hover" %> |
+    <%= link_to "Back to people", people_path, class: "td-emphasized link-hover" %>
     <br><br>
-    <%= button_to "Destroy this person", @address, method: :delete %>
+    <%= button_to "Destroy this person", @address, method: :delete, class: "td-emphasized link-hover" %>
       </div>
   </div>
 
