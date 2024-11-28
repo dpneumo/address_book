@@ -3,7 +3,7 @@ class PeopleController < ApplicationController
 
   # GET /people
   def index
-    @pagy, @people = pagy(Person.all, limit: 12)
+    @pagy, @people = pagy(Person.all, items: 10)
   end
 
   # GET /people/1 or /people/1.json
