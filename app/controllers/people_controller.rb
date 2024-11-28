@@ -21,7 +21,8 @@ class PeopleController < ApplicationController
 
   # POST /people
   def create
-    @person = Person.new(person_params)
+    normalized_parms = normalize(person_params)
+    @person = Person.new(normalized_parms)
 
     if @person.save
       redirect_to people_path, notice: "Person was successfully created."
@@ -32,7 +33,9 @@ class PeopleController < ApplicationController
 
   # PATCH/PUT /people/1
   def update
-    if @person.update(person_params)
+    normalized_parms = normalize(person_params)
+
+    if @person.update(normalized_parms)
       redirect_to @person, notice: "Person was successfully updated."
     else
       render :edit, status: :unprocessable_entity
@@ -55,5 +58,12 @@ class PeopleController < ApplicationController
     # Only allow a list of trusted parameters through.
     def person_params
       params.expect(person: [ :addressee, :street, :city, :state, :zip, :note ])
+    end
+
+    def normalize(parms)
+      inter1 = parms["state"].upcase if parms["state"]
+      inter2 = inter1.strip if inter1
+      parms["state"] = inter2
+      parms
     end
 end

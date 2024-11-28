@@ -3,7 +3,7 @@
 STATEABBREV=%w( AL AK AS AZ AR CA CO CT DE DC FM FL GA GU HI ID IL IN IA KS KY LA ME MH MD MA MI MN MS MO MT NE NV NH NJ NM NY ND MP OH OK OR PW PA PR RI SC SD TN TX UT VT VI VA WA WV WI WY )
 
 class Person < ApplicationRecord
-  before_validation :upcase_state
+#  before_validation :upcase_state
 
   validates :addressee, presence: true
   validates :street,  presence: true
@@ -13,7 +13,10 @@ class Person < ApplicationRecord
   validates :zip,  presence: true
 
   def upcase_state
-    state.strip!.upcase!
+    inter1 = state.upcase
+    inter2 = inter1.strip if inter1
+    state = inter2 if inter2
+    state
   end
 
   def complete_address
