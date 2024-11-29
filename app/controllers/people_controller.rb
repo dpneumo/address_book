@@ -6,7 +6,7 @@ class PeopleController < ApplicationController
     @pagy, @people = pagy(Person.all, items: 10)
   end
 
-  # GET /people/1 or /people/1.json
+  # GET /people/1
   def show
   end
 
