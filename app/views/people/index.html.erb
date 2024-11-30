@@ -16,6 +16,10 @@
     <hr class="mt-1 border-1 border-gray-700" />
     <br>
 
-    <%= link_to "New person", new_person_path, class: "td-emphasized link-hover", autofocus: true %>
+    <div class="flex flex-row justify-between">
+      <%= link_to "New Person", new_person_path, class: "td-emphasized link-hover", autofocus: true %>
+      <%= link_to "Proof list", list_path, class: "td-emphasized link-hover" %>
+      <%= link_to "Labels", labels_path, class: "td-emphasized link-hover" %>
+    </div
   </div>
 </div>
