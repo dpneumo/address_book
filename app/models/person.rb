@@ -24,7 +24,15 @@ class Person < ApplicationRecord
     ca.length > 20 ? ca.slice(0..19)+'...' : ca
   end
 
-  def city_state_zip
+  def label_addressee
+    addressee.slice(0..26)
+  end
+
+  def label_street
+    street.slice(0..26)
+  end
+
+  def label_csz
     "#{city}, #{state}  #{zip}"
   end
 
