@@ -25,11 +25,11 @@ class Person < ApplicationRecord
   end
 
   def label_addressee
-    addressee.slice(0..26)
+    addressee.slice(0..28)
   end
 
   def label_street
-    street.slice(0..26)
+    street.slice(0..28)
   end
 
   def label_csz
