@@ -10,8 +10,8 @@ class AveryController < ApplicationController
   def label_data
     people = Person.all
     people.map do |person|
-      { addressee: person.label_addressee,
-        street: person.label_street,
+      { addressee: person.addressee,
+        street: person.street,
         csz: person.label_csz }
     end
   end
