@@ -4,3 +4,12 @@
     <%= render "page", page_labels: page_labels %>
   <% end %>
 </div>
+
+<%= button_to "Print", "no_op_path",
+              class: "top-0 left-[16px] absolute w-14 m-auto bg-red-100 td-emphasized link-hover",
+              onclick: "window.print(); return false;"
+%>
+
+<%= link_to "People", people_path,
+              class: "top-0 left-[544px] absolute w-14 m-auto bg-red-100 td-emphasized link-hover"
+%>
