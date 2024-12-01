@@ -28,10 +28,10 @@
   </head>
 
   <body class="antialiased font-sans">
-    <%= render "layouts/navbar/header" %>
-    <% if @report %>
+    <% if @noheader %>
       <%= yield %>
     <% else %>
+      <%= render "layouts/navbar/header" %>
       <%= render "layouts/main" %>
     <% end %>
   </body>

@@ -1,11 +1,6 @@
-<div class="w-[800px] bg-gray-100 rounded border-black-4">
-  <div class="grid grid-cols-3 gap-4">
-    <% @people.each do |person| %>
-      <div class="grid grid-rows-3 bg-blue-100">
-        <div><%= person.label_addressee %></div>
-        <div><%= person.label_street %></div>
-        <div><%= person.label_csz %></div>
-      </div>
-    <% end %>
-  </div>
+<div class="grid grid-rows-2 gap-0 w-[612px]">
+  <% until @mylabels.empty? do %>
+    <% page_labels = @mylabels.shift(30) %>
+    <%= render "page", page_labels: page_labels %>
+  <% end %>
 </div>
