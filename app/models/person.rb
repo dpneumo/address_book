@@ -25,7 +25,7 @@ class Person < ApplicationRecord
   end
 
   def label_csz
-    "#{city}, #{state} #{zip}"
+    "#{city} #{state} #{zip}"
   end
 
   def note_hint
