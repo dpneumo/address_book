@@ -1,6 +1,6 @@
   <tr class='<%= background %>' >
     <td class='td-pad'>
-      <%= link_to item.addressee, person_path(item), class: "td-emphasized link-hover" %>
+      <%= link_to item.fullname, person_path(item), class: "td-emphasized link-hover" %>
     </td>
     <td class='td-pad td-base'><%= item.complete_address %></td>
     <td class='td-pad td-base'><%= item.note_hint %></td>

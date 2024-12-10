@@ -3,7 +3,7 @@ class PeopleController < ApplicationController
 
   # GET /people
   def index
-    @pagy, @people = pagy(Person.order(:last_name, :addressee), limit: 10, size: 7)
+    @pagy, @people = pagy(Person.order(:lastname, :addressee), limit: 10, size: 7)
   end
 
   # GET /people/1
@@ -54,6 +54,6 @@ class PeopleController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def person_params
-      params.expect(person: [ :addressee, :street, :city, :state, :zip, :note ])
+      params.expect(person: [ :addressee, :lastname, :street, :city, :state, :zip, :note ])
     end
 end

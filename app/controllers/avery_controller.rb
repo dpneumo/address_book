@@ -1,7 +1,4 @@
 class AveryController < ApplicationController
-  def show_18160_page
-  end
-
   def labels
     @noheader = true
     @mylabels = label_data
@@ -10,7 +7,7 @@ class AveryController < ApplicationController
   def label_data
     people = Person.all
     people.map do |person|
-      { addressee: person.addressee,
+      { fullname: person.fullname,
         street: person.street,
         csz: person.label_csz }
     end

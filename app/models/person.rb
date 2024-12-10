@@ -4,16 +4,23 @@ STATEABBREV=%w( AL AK AS AZ AR CA CO CT DE DC FM FL GA GU HI ID IL IN IA KS KY L
 
 class Person < ApplicationRecord
   before_validation :titleize_addressee
+  before_validation :titleize_lastname
   before_validation :titleize_street
   before_validation :titleize_city
   before_validation :upcase_state
 
   validates :addressee, presence: true
+  validates :lastname, presence: true
   validates :street,  presence: true
   validates :city,  presence: true
   validates :state,  presence: true
   validates :state, inclusion: { in: STATEABBREV, message: "%{value} is not a valid state code" }
   validates :zip,  presence: true
+
+  def fullname
+    return "ERROR" unless addressee && lastname
+    addressee + " " + lastname
+  end
 
   def complete_address
     "#{street}, #{city}, #{state} #{zip}"
@@ -37,6 +44,11 @@ class Person < ApplicationRecord
     def titleize_addressee
       inter1 = addressee.strip if addressee
       self.addressee = inter1 ? inter1.titleize : nil
+    end
+
+    def titleize_lastname
+      inter1 = lastname.strip if lastname
+      self.lastname = inter1 ? inter1.titleize : nil
     end
 
     def titleize_street

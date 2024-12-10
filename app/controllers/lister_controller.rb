@@ -11,7 +11,7 @@ class ListerController < ApplicationController
   end
 
   def person2file(file, person)
-    file.write person.addressee
+    file.write person.fullname
     file.write person.street
     file.write person.label_csz
     file.write "\n\n"
