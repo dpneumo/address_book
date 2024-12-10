@@ -3,7 +3,7 @@ class PeopleController < ApplicationController
 
   # GET /people
   def index
-    @pagy, @people = pagy(Person.all, limit: 10)
+    @pagy, @people = pagy(Person.order(:last_name, :addressee), limit: 10, size: 7)
   end
 
   # GET /people/1
