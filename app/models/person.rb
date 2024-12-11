@@ -3,19 +3,11 @@
 STATEABBREV=%w( AL AK AS AZ AR CA CO CT DE DC FM FL GA GU HI ID IL IN IA KS KY LA ME MH MD MA MI MN MS MO MT NC NE NV NH NJ NM NY ND MP OH OK OR PW PA PR RI SC SD TN TX UT VT VI VA WA WV WI WY )
 
 class Person < ApplicationRecord
-  before_validation :titleize_addressee
-  before_validation :titleize_lastname
-  before_validation :titleize_street
-  before_validation :titleize_city
-  before_validation :upcase_state
+  before_validation :clean_data
+  before_validation :titleize_data
 
-  validates :addressee, presence: true
-  validates :lastname, presence: true
-  validates :street,  presence: true
-  validates :city,  presence: true
-  validates :state,  presence: true
+  validates :addressee, :lastname, :street, :city, :state, :zip, presence: true
   validates :state, inclusion: { in: STATEABBREV, message: "%{value} is not a valid state code" }
-  validates :zip,  presence: true
 
   def fullname
     return "ERROR" unless addressee && lastname
@@ -41,28 +33,15 @@ class Person < ApplicationRecord
   end
 
   private
-    def titleize_addressee
-      inter1 = addressee.strip if addressee
-      self.addressee = inter1 ? inter1.titleize : nil
+  def clean_data
+    changed.each do |name|
+      send("#{name}=", send(name).strip) if send(name).respond_to?(:strip)
     end
+  end
 
-    def titleize_lastname
-      inter1 = lastname.strip if lastname
-      self.lastname = inter1 ? inter1.titleize : nil
+  def titleize_data
+    changed.each do |name|
+      send("#{name}=", send(name).titleize) if send(name).respond_to?(:titleize)
     end
-
-    def titleize_street
-      inter1 = street.strip if street
-      self.street = inter1 ? inter1.titleize : nil
-    end
-
-    def titleize_city
-      inter1 = city.strip if city
-      self.city = inter1 ? inter1.titleize : nil
-    end
-
-    def upcase_state
-      inter1 = state.strip if state
-      self.state = inter1 ? inter1.upcase : nil
-    end
+  end
 end
