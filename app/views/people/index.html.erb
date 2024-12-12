@@ -1,30 +1,31 @@
 <% content_for :title, "People" %>
 
 <div class='flex flex-row items-center justify-center'>
-  <div class='mb-5 mx-2'>
+  <div class='mb-5'>
     <div class="flex flex-row justify-between">
       <h1 class="font-sans font-bold text-2xl">People</h1>
     </div>
 
-    <%= form_with model: @query, scope: :query, url: people_path, method: :get do |form| %>
-      <div class="flex flex-col md:flex-row">
-        <%= render 'shared/form/text_attr', form: form, element: :addressee_contains, maxw: 48 %>
-        <%= render 'shared/form/text_attr', form: form, element: :lastname_contains, maxw: 48 %>
-      </div>
+    <div id="search" class="bg-gray-50">
+      <%= form_with model: @query, scope: :query, url: people_path, method: :get do |form| %>
+        <div class="flex flex-col md:flex-row">
+          <%= render 'shared/form/search_txt_attr', form: form, element: :addressee_contains, autofocus: true, maxw: 48 %>
+          <%= render 'shared/form/search_txt_attr', form: form, element: :lastname_contains, maxw: 48 %>
+          <%= render 'shared/form/submit_search', form: form, btntxt: "Search" %>
+        </div>
 
-      <div class="flex flex-col md:flex-row">
-        <%= render 'shared/form/text_attr', form: form, element: :city_equals, maxw: 48 %>
-        <%= render 'shared/form/select_attr', form: form, element: :state_equals,
-                        collection: @query.options_for_state_select,
-                        blank: true,
-                        selected: '',
-                        do_not_edit: false,
-                        maxw: 14 %>
-        <%= render 'shared/form/text_attr', form: form, element: :zip_equals, maxw: 32 %>
-      </div>
-
-      <%= submit_tag "Search" %>
-    <% end %>
+        <div class="flex flex-col md:flex-row">
+          <%= render 'shared/form/search_txt_attr', form: form, element: :city_equals, maxw: 48 %>
+          <%= render 'shared/form/select_attr', form: form, element: :state_equals,
+                          collection: @query.options_for_state_select,
+                          blank: true,
+                          selected: '',
+                          do_not_edit: false,
+                          maxw: 14 %>
+          <%= render 'shared/form/search_txt_attr', form: form, element: :zip_equals, maxw: 32 %>
+        </div>
+      <% end %>
+    </div>
 
     <div id="people">
       <%= render "shared/table", collection: @people, head: 'head', item_row: 'row' %>

@@ -5,6 +5,7 @@ STATEABBREV=%w( AL AK AS AZ AR CA CO CT DE DC FM FL GA GU HI ID IL IN IA KS KY L
 class Person < ApplicationRecord
   before_validation :clean_data
   before_validation :titleize_data
+  before_validation :upcase_state
 
   validates :addressee, :lastname, :street, :city, :state, :zip, presence: true
   validates :state, inclusion: { in: STATEABBREV, message: "%{value} is not a valid state code" }
@@ -41,7 +42,12 @@ class Person < ApplicationRecord
 
   def titleize_data
     changed.each do |name|
+      next if name == 'state'
       send("#{name}=", send(name).titleize) if send(name).respond_to?(:titleize)
     end
+  end
+
+  def upcase_state
+    send(:state=, send(:state).upcase) if send(:state).respond_to?(:upcase)
   end
 end
