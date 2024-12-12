@@ -35,9 +35,7 @@
     <br>
 
     <div class="flex flex-row justify-between">
-      <%= link_to "New Person", new_person_path, class: "td-emphasized link-hover", autofocus: true %>
-      <%= link_to "Proof list", list_path, class: "td-emphasized link-hover" %>
-      <%= link_to "Labels", labels_path, class: "td-emphasized link-hover" %>
-    </div
+      <%= render 'shared/button', btnpath: new_person_path, btntxt: "New Person", method: :get %>
+    </div>
   </div>
 </div>
