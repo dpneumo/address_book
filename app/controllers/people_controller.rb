@@ -3,7 +3,10 @@ class PeopleController < ApplicationController
 
   # GET /people
   def index
-    @pagy, @people = pagy(Person.order(:lastname, :addressee), limit: 10, size: 7)
+    @query = Person::Query.new(params.fetch(:query, {}).permit(:addressee_contains, :lastname_contains, :city_equals, :state_equals, :zip_equals))
+    @people = @query.results
+
+    @pagy, @people = pagy(@people.order(:lastname, :addressee), limit: 10, size: 7)
   end
 
   # GET /people/1

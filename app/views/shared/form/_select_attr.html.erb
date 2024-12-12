@@ -1,6 +1,5 @@
-  <div class="mx-4 mb-5 min-w-0">
+  <div class="mx-4 mb-5 min-w-0 max-w-<%= maxw %>">
     <%= form.label element %>
-    <%= element || "nothing" %>
     <%= form.select( element, collection,
             { include_blank: blank,
               selected: selected },
