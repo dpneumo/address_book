@@ -9,7 +9,7 @@ class Person::Query
   attribute :lastname_contains, :string
 
   def results
-    valid? ? sort_people.then { filter_people(_1) } : []
+    valid? ? filter_people(scope = Person.all) : []
   end
 
   def options_for_state_select
@@ -17,16 +17,12 @@ class Person::Query
   end
 
   private
-    def sort_people(scope = Person.all)
-      scope.order("#{lastname} #{addressee}")
-    end
-
     def filter_people(scope)
       filter_by_addressee(scope)
-        .then {filter_by_lastname(_1) }
-        .then {filter_by_city(_1) }
-        .then {filter_by_state(_1) }
-        .then {filter_by_zip(_1) }
+        .then { filter_by_lastname(_1) }
+        .then { filter_by_city(_1)     }
+        .then { filter_by_state(_1)    }
+        .then { filter_by_zip(_1)      }
     end
 
     def filter_by_addressee(scope)
