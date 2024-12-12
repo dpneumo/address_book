@@ -1,6 +1,7 @@
 class Person::Query
   include ActiveModel::Model
   include ActiveModel::Attributes
+  include States
 
   attribute :addressee_contains, :string
   attribute :lastname_contains, :string
@@ -10,10 +11,6 @@ class Person::Query
 
   def results
     valid? ? filter_people(scope = Person.all) : []
-  end
-
-  def options_for_state_select
-    STATEABBREV.map {|st| [st, st] }
   end
 
   private

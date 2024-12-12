@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
-STATEABBREV=%w( AL AK AS AZ AR CA CO CT DE DC FM FL GA GU HI ID IL IN IA KS KY LA ME MH MD MA MI MN MS MO MT NC NE NV NH NJ NM NY ND MP OH OK OR PW PA PR RI SC SD TN TX UT VT VI VA WA WV WI WY )
-
 class Person < ApplicationRecord
+  include States
+
   before_validation :clean_data
   before_validation :titleize_data
   before_validation :upcase_state
 
   validates :addressee, :lastname, :street, :city, :state, :zip, presence: true
-  validates :state, inclusion: { in: STATEABBREV, message: "%{value} is not a valid state code" }
+  validates :state, inclusion: { in: state_abbreviations, message: "%{value} is not a valid state code" }
 
   def fullname
     return "ERROR" unless addressee && lastname
@@ -31,10 +31,6 @@ class Person < ApplicationRecord
   def note_hint
     return '' unless note
     note.length > 15 ? note.slice(0..14)+'...' : note
-  end
-
-  def options_for_state_select
-    STATEABBREV.map {|st| [st, st] }
   end
 
   private
