@@ -33,6 +33,10 @@ class Person < ApplicationRecord
     note.length > 15 ? note.slice(0..14)+'...' : note
   end
 
+  def options_for_state_select
+    STATEABBREV.map {|st| [st, st] }
+  end
+
   private
   def clean_data
     changed.each do |name|
