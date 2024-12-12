@@ -16,7 +16,7 @@
 
         <div class="flex flex-col md:flex-row">
           <%= render 'shared/form/search_txt_attr', form: form, element: :city_contains, maxw: 48 %>
-          <%= render 'shared/form/select_attr', form: form, element: :state_equals,
+          <%= render 'shared/form/search_select', form: form, element: :state_equals,
                           collection: @query.options_for_state_select,
                           maxw: 14 %>
           <%= render 'shared/form/search_txt_attr', form: form, element: :zip_equals, maxw: 32 %>
