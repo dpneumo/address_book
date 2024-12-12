@@ -1,9 +1,13 @@
-  <div class="mx-4 mb-5 min-w-0 max-w-<%= maxw %>">
+<% do_not_edit ||= false %>
+<% include_blank ||= true %>
+<% selected ||= '' %>
+
+<div class="mx-4 mb-5">
     <%= form.label element %>
     <%= form.select( element, collection,
-            { include_blank: blank,
+            { include_blank: include_blank,
               selected: selected },
-            { class: "block mt-0 py-0 pl-3 text-gray-900 font-medium rounded-md border-0 shadow ring",
+            { class: "block mt-0 py-0 pl-6 text-gray-900 font-medium rounded-md border-0 shadow ring",
               disabled: do_not_edit
             }
         )

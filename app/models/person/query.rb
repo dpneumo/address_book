@@ -2,11 +2,11 @@ class Person::Query
   include ActiveModel::Model
   include ActiveModel::Attributes
 
-  attribute :city_equals, :string
-  attribute :state_equals, :string
-  attribute :zip_equals, :string
   attribute :addressee_contains, :string
   attribute :lastname_contains, :string
+  attribute :city_contains, :string
+  attribute :state_equals, :string
+  attribute :zip_equals, :string
 
   def results
     valid? ? filter_people(scope = Person.all) : []
@@ -34,7 +34,7 @@ class Person::Query
     end
 
     def filter_by_city(scope)
-      city_equals.presence ? scope.where("city = ?", city_equals) : scope
+      city_contains.presence ? scope.where("city LIKE ?", "%#{city_contains}%") : scope
     end
 
     def filter_by_state(scope)

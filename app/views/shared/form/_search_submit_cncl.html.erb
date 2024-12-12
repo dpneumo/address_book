@@ -1,0 +1,8 @@
+<% subtxt ||= "Search" %>
+<% cncltxt ||= "Clear" %>
+
+<div class="mt-2 w-fit">
+  <%= form.submit( subtxt, class: "search-button", tabindex: -1 ) %>
+
+  <%= link_to cncltxt, cnclpath, class: "mx-2 search_link link-hover", tabindex: -1 %>
+</div>

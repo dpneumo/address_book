@@ -11,16 +11,13 @@
         <div class="flex flex-col md:flex-row">
           <%= render 'shared/form/search_txt_attr', form: form, element: :addressee_contains, autofocus: true, maxw: 48 %>
           <%= render 'shared/form/search_txt_attr', form: form, element: :lastname_contains, maxw: 48 %>
-          <%= render 'shared/form/submit_search', form: form, btntxt: "Search" %>
+          <%= render 'shared/form/search_submit_cncl', form: form, cnclpath: people_path %>
         </div>
 
         <div class="flex flex-col md:flex-row">
-          <%= render 'shared/form/search_txt_attr', form: form, element: :city_equals, maxw: 48 %>
+          <%= render 'shared/form/search_txt_attr', form: form, element: :city_contains, maxw: 48 %>
           <%= render 'shared/form/select_attr', form: form, element: :state_equals,
                           collection: @query.options_for_state_select,
-                          blank: true,
-                          selected: '',
-                          do_not_edit: false,
                           maxw: 14 %>
           <%= render 'shared/form/search_txt_attr', form: form, element: :zip_equals, maxw: 32 %>
         </div>
