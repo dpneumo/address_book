@@ -1,9 +1,11 @@
 <% subtxt ||= "Submit" %>
 <% cncltxt ||= "Cancel" %>
+<% subtabindex ||= 0 %>
+<% cncltabindex ||= -1 %>
 
-  <div class="mx-4 mb-5 w-fit">
-    <%= form.submit( subtxt, class: "submit-button", tabindex: -1 ) %>
+<div class="mx-4 mb-5 w-fit">
+  <%= form.submit( subtxt, class: "submit-button", tabindex: subtabindex ) %>
 
-    <%= link_to cncltxt, cnclpath,
-          class: "mx-4 text-gray-900 text-sm font-sans font-semibold leading-6 link-hover", tabindex: -1 %>
-  </div>
+  <%= link_to cncltxt, cnclpath,
+        class: "mx-4 text-gray-900 text-sm font-sans font-semibold leading-6 link-hover", tabindex: cncltabindex %>
+</div>

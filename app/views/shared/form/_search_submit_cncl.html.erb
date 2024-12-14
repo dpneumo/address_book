@@ -1,8 +1,10 @@
 <% subtxt ||= "Search" %>
 <% cncltxt ||= "Clear" %>
+<% subtabindex ||= 0 %>
+<% cncltabindex ||= -1 %>
 
 <div class="ml-10 mt-2 justify-center w-max">
-  <%= form.submit( subtxt, class: "search-button", tabindex: -1 ) %>
+  <%= form.submit( subtxt, class: "search-button", tabindex: subtabindex ) %>
 
-  <%= link_to cncltxt, cnclpath, class: "mx-2 search_link link-hover", tabindex: -1 %>
+  <%= link_to cncltxt, cnclpath, class: "mx-2 search_link link-hover", tabindex: cncltabindex %>
 </div>

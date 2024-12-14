@@ -1,16 +1,20 @@
+<% rowbglight ||= "bg-white" %>
+<% rowbgdark ||= "bg-gray-200" %>
+<% headbg ||= "bg-gray-400" %>
+<% headbgdark ||= "bg-neutral-300" %>
+<% headborder ||= "dark:border-neutral-800" %>
+
 <div class="flex flex-col max-w-full mx-auto">
   <div class="inline-block relative py-2 overflow-x-auto">
 
     <table class="w-full text-xl font-medium">
-      <thead class="bg-gray-400 font-sans font-medium dark:border-neutral-800 dark:bg-neutral-300">
+      <thead class="font-sans font-medium <%= %Q(#{headbg} #{headbgdark} #{headborder}) %>">
         <%= render head %>
       </thead>
       <tbody>
-        <% if collection %>
-          <% collection.each_with_index do |item, i| %>
-            <% background = i.even? ? 'bg-white' : 'bg-gray-200' %>
-            <%= render item_row, item: item, background: background %>
-          <% end %>
+        <% collection.each_with_index do |item, i| %>
+          <% background = i.even? ? rowbglight : rowbgdark %>
+          <%= render item_row, item: item, background: background %>
         <% end %>
       </tbody>
     </table>
