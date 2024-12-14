@@ -1,4 +1,5 @@
 <% btnclass ||= "mx-4 submit-button font-sans" %>
 <% method ||= "get" %>
+<% autofocus ||= false %>
 
-<%= button_to btntxt, btnpath, class: btnclass, method: method %>
+<%= button_to btntxt, btnpath, class: btnclass, method: method, autofocus: autofocus %>

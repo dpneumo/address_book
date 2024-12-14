@@ -1,6 +1,7 @@
 <% btntxt ||= "Delete" %>
 <% confirmtxt ||= "Are you sure?" %>
+<% btnclass ||= "mx-4 submit-button font-sans" %>
 
 <%= button_to btntxt, btnpath,
       { data: { turbo_method: :delete, turbo_confirm: confirmtxt },
-        class: "mx-4 submit-button font-sans" }  %>
+        class: btnclass }  %>

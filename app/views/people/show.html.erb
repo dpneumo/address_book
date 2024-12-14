@@ -25,9 +25,9 @@
 
     <div class='row-start-2 h-fit my-3'>
       <div class="flex flex-row justify-between">
-        <%= render 'shared/button', btnpath: edit_person_path(@person), btntxt: "Edit", method: :get %>
-        <%= render 'shared/button', btnpath: people_path, btntxt: "Back", method: :get %>
-        <%= render 'shared/button_delete', btnpath: person_path(@person), btntxt: "Delete" %>
+        <%= render 'shared/button', btnpath: edit_person_path(@person), btntxt: "Edit", btnclass: "edit-button", autofocus: true %>
+        <%= render 'shared/button', btnpath: people_path, btntxt: "Back", btnclass: "back-button" %>
+        <%= render 'shared/button_delete', btnpath: person_path(@person), btntxt: "Delete", btnclass: "delete-button" %>
       </div
     </div>
   </div>
