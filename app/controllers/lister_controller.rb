@@ -5,7 +5,7 @@ class ListerController < ApplicationController
   end
 
   def write_list
-    File.open("addresses.txt", "w+") do |file|
+    File.open("tmp/addresses.txt", "w+") do |file|
       @people.all.each {|person| person2file(file, person) }
     end
   end
