@@ -8,18 +8,14 @@
 
     <div id="search" class="bg-gray-50">
       <%= form_with model: @query, scope: :query, url: people_path, method: :get do |form| %>
-        <div class="flex flex-col md:flex-row">
-          <%= render 'shared/form/search_txt_attr', form: form, element: :addressee_contains, autofocus: true, maxw: 48 %>
-          <%= render 'shared/form/search_txt_attr', form: form, element: :lastname_contains, maxw: 48 %>
+        <div class="grid grid-cols-3 gap-x-4 mb-4">
+          <%= render 'shared/form/search_txt_attr', form: form, element: :lastname_contains, autofocus: true %>
+          <%= render 'shared/form/search_txt_attr', form: form, element: :addressee_contains %>
           <%= render 'shared/form/search_submit_cncl', form: form, cnclpath: people_path %>
-        </div>
-
-        <div class="flex flex-col md:flex-row">
-          <%= render 'shared/form/search_txt_attr', form: form, element: :city_contains, maxw: 48 %>
+          <%= render 'shared/form/search_txt_attr', form: form, element: :city_contains %>
           <%= render 'shared/form/search_select', form: form, element: :state_equals,
-                          collection: Person::Query.state_select_opts,
-                          maxw: 14 %>
-          <%= render 'shared/form/search_txt_attr', form: form, element: :zip_equals, maxw: 32 %>
+                          collection: Person::Query.state_select_opts %>
+          <%= render 'shared/form/search_txt_attr', form: form, element: :zip_equals %>
         </div>
       <% end %>
     </div>
@@ -35,7 +31,7 @@
     <br>
 
     <div class="flex flex-row justify-between">
-      <%= render 'shared/button', btnpath: new_person_path, btntxt: "New Person", method: :get %>
+      <%= render 'shared/button', btnpath: new_person_path, btntxt: "New Person", btnclass: "edit-button" %>
     </div>
   </div>
 </div>

@@ -3,11 +3,11 @@
 <% selected ||= '' %>
 
 <div class="mx-4 mb-5">
-    <%= form.label element %>
+    <%= form.label element, class: "field-label" %>
     <%= form.select( element, collection,
             { include_blank: include_blank,
               selected: selected },
-            { class: "block mt-2 py-3 px-8 text-gray-900 font-medium rounded-md border-0 shadow ring",
+            { class: "select-field",
               disabled: do_not_edit
             }
         )

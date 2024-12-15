@@ -3,7 +3,7 @@
 <% subtabindex ||= 0 %>
 <% cncltabindex ||= -1 %>
 
-<div class="ml-10 mt-2 justify-center w-max">
+<div class="flex justify-between py-3">
   <%= form.submit( subtxt, class: "search-button", tabindex: subtabindex ) %>
 
   <%= link_to cncltxt, cnclpath, class: "mx-2 search_link link-hover", tabindex: cncltabindex %>

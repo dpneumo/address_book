@@ -1,5 +1,6 @@
 <% autofocus ||= false %>
-<div class="mx-4 mb-0 max-w-<%= maxw %>">
-  <%= form.label element %>
+
+<div class="mb-0">
+  <%= form.label element, class: "search-label" %>
   <%= form.text_field element, { class: 'search-txt-field ring', autofocus: autofocus } %>
 </div>

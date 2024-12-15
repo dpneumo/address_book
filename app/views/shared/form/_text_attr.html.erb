@@ -1,5 +1,5 @@
 <% autofocus ||= false %>
 <div class="mx-4 mb-5 max-w-<%= maxw %>">
-  <%= form.label element %>
+  <%= form.label element, class: "field-label" %>
   <%= form.text_field element, { class: 'base-field ring', autofocus: autofocus } %>
 </div>

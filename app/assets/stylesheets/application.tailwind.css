@@ -38,7 +38,7 @@
 }
 
 .search-button {
-  @apply form-submission-btn px-2 py-1 mx-4 mt-2;
+  @apply form-submission-btn px-2 py-1;
 }
 
 
@@ -86,29 +86,43 @@
 
 /* Fields */
 .base-field {
-  @apply block w-full min-w-full mt-2 p-3 text-gray-900 font-sans font-medium rounded-md border-0 shadow;
+  @apply block px-2 text-gray-900 font-sans font-medium rounded-md border-0 shadow;
 }
 
 .search-txt-field {
-  @apply block w-full min-w-full mt-0 px-2 py-0 text-gray-900 font-sans font-medium rounded-md border-0 shadow;
+  @apply base-field mt-0 py-0;
 }
 
 .search-select-field {
-  @apply block w-full min-w-full mt-0 p-0 pl-3 text-gray-900 font-sans font-medium rounded-md border-0 shadow;
+  @apply base-field mt-0 p-0;
+}
+
+.select-field {
+  @apply base-field py-2;
 }
 
 .disabled-sel-field {
-  @apply base-field px-3 py-4 bg-gray-200;
+  @apply base-field bg-gray-200;
 }
 
 .disabled-txt-field {
-  @apply base-field px-3 py-4 bg-gray-200;
+  @apply base-field bg-gray-200;
 }
 
-.form-field-label {
-  @apply block pl-3 pt-1 font-sans font-semibold text-sm text-gray-900 leading-3;
+
+
+/* Labels */
+.base-label {
+  @apply block font-sans font-semibold;
 }
 
+.search-label {
+  @apply base-label text-sm text-black;
+}
+
+.field-label {
+  @apply base-label text-base text-black;
+}
 
 
 /*

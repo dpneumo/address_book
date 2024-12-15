@@ -1,13 +1,15 @@
+<% autofocus ||= false %>
 <% do_not_edit ||= false %>
 <% include_blank ||= true %>
 <% selected ||= '' %>
 
-<div class="mx-4 mb-5">
-    <%= form.label element %>
+<div class="mb-0">
+    <%= form.label element, class: "search-label" %>
     <%= form.select( element, collection,
             { include_blank: include_blank,
-              selected: selected },
-            { class: "block mt-0 py-0 pl-6 text-gray-900 font-medium rounded-md border-0 shadow ring",
+              selected: selected,
+              autofocus: autofocus },
+            { class: "search-select-field",
               disabled: do_not_edit
             }
         )
