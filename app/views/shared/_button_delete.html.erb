@@ -2,6 +2,4 @@
 <% confirmtxt ||= "Are you sure?" %>
 <% btnclass ||= "mx-4 submit-button font-sans" %>
 
-<%= button_to btntxt, btnpath,
-      { data: { turbo_method: :delete, turbo_confirm: confirmtxt },
-        class: btnclass }  %>
+<%= button_to btntxt, btnpath, method: :delete, form: { data: { turbo_confirm: confirmtxt } }, class: btnclass %>
