@@ -12,17 +12,16 @@ class PeopleTest < ApplicationSystemTestCase
 
   test "should create person" do
     visit people_url
-    click_on "New person"
+    click_on "New Person"
 
-    fill_in "Birthday", with: @person.birthday
-    fill_in "Birthmonth", with: @person.birthmonth
-    fill_in "Birthyear", with: @person.birthyear
-    fill_in "Firstname", with: @person.firstname
+    fill_in "Addressee", with: @person.addressee
     fill_in "Lastname", with: @person.lastname
-    fill_in "Middlename", with: @person.middlename
-    fill_in "Nickname", with: @person.nickname
-    fill_in "note", with: @person.note
-    click_on "Create Person"
+    fill_in "Street", with: @person.street
+    fill_in "City", with: @person.city
+    fill_in "State", with: @person.state
+    fill_in "Zip", with: @person.zip
+    fill_in "Note", with: @person.note
+    click_on "Submit"
 
     assert_text "Person was successfully created"
     click_on "Back"
@@ -30,17 +29,16 @@ class PeopleTest < ApplicationSystemTestCase
 
   test "should update Person" do
     visit person_url(@person)
-    click_on "Edit this person", match: :first
+    click_on "Edit", match: :first
 
-    fill_in "Birthday", with: @person.birthday
-    fill_in "Birthmonth", with: @person.birthmonth
-    fill_in "Birthyear", with: @person.birthyear
-    fill_in "Firstname", with: @person.firstname
+    fill_in "Addressee", with: @person.addressee
     fill_in "Lastname", with: @person.lastname
-    fill_in "Middlename", with: @person.middlename
-    fill_in "Nickname", with: @person.nickname
-    fill_in "note", with: @person.note
-    click_on "Update Person"
+    fill_in "Street", with: @person.street
+    fill_in "City", with: @person.city
+    fill_in "State", with: @person.state
+    fill_in "Zip", with: @person.zip
+    fill_in "Note", with: @person.note
+    click_on "Submit"
 
     assert_text "Person was successfully updated"
     click_on "Back"
@@ -48,7 +46,8 @@ class PeopleTest < ApplicationSystemTestCase
 
   test "should destroy Person" do
     visit person_url(@person)
-    click_on "Destroy this person", match: :first
+    click_on "Delete", match: :first
+    click_on "OK"
 
     assert_text "Person was successfully destroyed"
   end

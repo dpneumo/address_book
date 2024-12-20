@@ -1,21 +1,19 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  firstname: MyString
-  middlename: MyString
-  lastname: MyString
-  nickname: MyString
-  birthday: MyString
-  birthmonth: MyString
-  birthyear: MyString
-  note: MyString
+  addressee: Samantha
+  lastname: Beard
+  street: 123 Oak St
+  city: Arlington
+  state: TX
+  zip: 76123
+  note: A short note
 
 two:
-  firstname: MyString
-  middlename: MyString
-  lastname: MyString
-  nickname: MyString
-  birthday: MyString
-  birthmonth: MyString
-  birthyear: MyString
-  note: MyString
+  addressee: Joe
+  lastname: Blow
+  street: 9876 Windy Rd
+  city: Howling
+  state: TX
+  zip: 77777
+  note: This is a very long note to test the hint transformation of the note. 
