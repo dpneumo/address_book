@@ -4,10 +4,10 @@ class Person::Query
   include States
 
   attribute :addressee_contains, :string
-  attribute :lastname_contains, :string
+  attribute :lastname_starts_with, :string
   attribute :city_contains, :string
-  attribute :state_equals, :string
-  attribute :zip_equals, :string
+  attribute :state_is, :string
+  attribute :zip_is, :string
 
   def results
     valid? ? filter_people(scope = Person.all) : []
@@ -23,22 +23,36 @@ class Person::Query
     end
 
     def filter_by_addressee(scope)
-      addressee_contains.presence ? scope.where("addressee LIKE ?", "%#{addressee_contains}%") : scope
+      addressee_contains.presence ?
+        scope.where("addressee LIKE ?", sanitize(addressee_contains) ) :
+        scope
     end
 
     def filter_by_lastname(scope)
-      lastname_contains.presence ? scope.where("lastname LIKE ?", "%#{lastname_contains}%") : scope
+      lastname_starts_with.presence ?
+        scope.where("lastname LIKE ?", sanitize(lastname_starts_with) + "%" ) : scope
     end
 
     def filter_by_city(scope)
-      city_contains.presence ? scope.where("city LIKE ?", "%#{city_contains}%") : scope
+      city_contains.presence ?
+        scope.where("city LIKE ?", sanitize(city_contains) ) :
+        scope
     end
 
     def filter_by_state(scope)
-      state_equals.presence ? scope.where("state = ?", state_equals) : scope
+      state_is.presence ?
+        scope.where("state = ?", sanitize(state_is) ) :
+        scope
     end
 
     def filter_by_zip(scope)
-      zip_equals.presence ? scope.where("zip = ?", zip_equals) : scope
+      zip_is.presence ?
+        scope.where("zip = ?", sanitize(zip_is) ) :
+        scope
     end
+
+    private
+      def sanitize(parm)
+        Person.sanitize_sql_like(parm)
+      end
 end
