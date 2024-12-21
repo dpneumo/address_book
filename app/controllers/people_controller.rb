@@ -3,7 +3,7 @@ class PeopleController < ApplicationController
 
   # GET /people
   def index
-    @query = Person::Query.new(params.fetch(:query, {}).permit(:addressee_contains, :lastname_contains, :city_contains, :state_equals, :zip_equals))
+    @query = Person::Query.new(query_params)
     @people = @query.results
 
     @pagy, @people = pagy(@people.order(:lastname, :addressee), limit: 10, size: 7)
@@ -58,5 +58,9 @@ class PeopleController < ApplicationController
     # Only allow a list of trusted parameters through.
     def person_params
       params.expect(person: [ :addressee, :lastname, :street, :city, :state, :zip, :note ])
+    end
+
+    def query_params
+      params.fetch(:query, {}).permit(:addressee_contains, :lastname_starts_with, :city_contains, :state_is, :zip_is)
     end
 end
