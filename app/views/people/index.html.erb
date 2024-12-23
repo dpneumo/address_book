@@ -9,7 +9,11 @@
     </div>
 
     <div id="search" class="bg-gray-50">
-      <%= form_with model: @query, scope: :query, url: people_path, method: :get do |form| %>
+      <%= form_with model: @query,
+                    scope: :query,
+                    url: people_path,
+                    method: :get,
+                    data: { controller: "autosubmit" } do |form| %>
         <div class="grid grid-cols-3 gap-x-4 mb-4">
           <%= render 'shared/form/search_txt_attr', form: form, element: :lastname_starts_with, autofocus: true %>
           <%= render 'shared/form/search_txt_attr', form: form, element: :addressee_contains %>
@@ -22,9 +26,9 @@
       <% end %>
     </div>
 
-    <div id="people">
-      <%= render "shared/table", collection: @people, head: 'head', item_row: 'row' %>
-    </div>
+    <%= turbo_frame_tag "people", class: "min-w-full" do %>
+        <%= render "shared/table", collection: @people, head: 'head', item_row: 'row' %>
+    <% end %>
 
     <br>
     <%== pagy_nav(@pagy) if @pagy.pages > 1 %>
