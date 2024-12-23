@@ -8,7 +8,9 @@
     <%= form.select( element, collection,
             { include_blank: include_blank,
               selected: selected,
-              autofocus: autofocus },
+              autofocus: autofocus,
+              data: { action: "autosubmit#submit" }
+            },
             { class: "search-select-field",
               disabled: do_not_edit
             }

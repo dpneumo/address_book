@@ -6,7 +6,6 @@ export default class extends Controller {
     console.log(this.element)
   }
   submit(e) {
-    console.log(e)
     const form = this.element;
     const formData = new FormData(form);
 
