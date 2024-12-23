@@ -23,32 +23,43 @@ class Person::Query
     end
 
     def filter_by_addressee(scope)
-      addressee_contains.presence ?
-        scope.where("addressee LIKE ?", sanitize(addressee_contains) ) :
+      if addressee_contains.present?
+        scope.where("addressee LIKE ?", ("%" + sanitize(addressee_contains) + "%" ) )
+      else
         scope
+      end
     end
 
     def filter_by_lastname(scope)
-      lastname_starts_with.presence ?
-        scope.where("lastname LIKE ?", sanitize(lastname_starts_with) + "%" ) : scope
+      if lastname_starts_with.present?
+        scope.where("lastname LIKE ?", (sanitize(lastname_starts_with) + "%") )
+      else
+        scope
+      end
     end
 
     def filter_by_city(scope)
-      city_contains.presence ?
-        scope.where("city LIKE ?", sanitize(city_contains) ) :
+      if city_contains.present?
+        scope.where("city LIKE ?", ("%" + sanitize(city_contains) + "%") )
+      else
         scope
+      end
     end
 
     def filter_by_state(scope)
-      state_is.presence ?
-        scope.where("state = ?", sanitize(state_is) ) :
+      if state_is.present?
+        scope.where("state = ?", sanitize(state_is) )
+      else
         scope
+      end
     end
 
     def filter_by_zip(scope)
-      zip_is.presence ?
-        scope.where("zip = ?", sanitize(zip_is) ) :
+      if zip_is.present?
+        scope.where("zip = ?", sanitize(zip_is) )
+      else
         scope
+      end
     end
 
     private
