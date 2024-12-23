@@ -3,10 +3,11 @@ class PeopleController < ApplicationController
 
   # GET /people
   def index
+    puts query_params
     @query = Person::Query.new(query_params)
     @people = @query.results
 
-    @pagy, @people = pagy(@people.order(:lastname, :addressee), limit: 10, size: 7)
+    @pagy, @people = pagy(@people.order(:lastname, :addressee), limit: 4, size: 7)
   end
 
   # GET /people/1

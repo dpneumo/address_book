@@ -1,6 +1,10 @@
 <% autofocus ||= false %>
 
-<div class="mb-0">
+<div class="mb-0"">
   <%= form.label element, class: "search-label" %>
-  <%= form.text_field element, { class: 'search-txt-field ring', autofocus: autofocus } %>
+  <%= form.text_field element,
+        value: params[element],
+        class: 'search-txt-field ring',
+        autofocus: autofocus,
+        data: { action: "autosubmit#submit" } %>
 </div>

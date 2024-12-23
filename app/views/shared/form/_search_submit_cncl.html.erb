@@ -2,9 +2,10 @@
 <% cncltxt ||= "Clear" %>
 <% subtabindex ||= 0 %>
 <% cncltabindex ||= -1 %>
+<% btnid ||= "filterBtn" %>
 
 <div class="flex justify-between py-3">
-  <%= form.submit( subtxt, class: "search-button", tabindex: subtabindex ) %>
+  <%= form.submit( subtxt, class: "search-button", id: btnid, tabindex: subtabindex ) %>
 
   <%= link_to cncltxt, cnclpath, class: "mx-2 search_link link-hover", tabindex: cncltabindex %>
 </div>
