@@ -10,11 +10,11 @@
             { include_blank: include_blank,
               selected: selected,
               autofocus: autofocus,
-              data: { action: "autosubmit#submit" }
             },
             { class: "search-select-field",
               disabled: do_not_edit,
-              tabindex: tabndx
+              tabindex: tabndx,
+              data: { action: "change->autosubmit#submit" }
             }
         )
     %>
