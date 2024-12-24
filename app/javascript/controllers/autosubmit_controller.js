@@ -4,7 +4,7 @@ import debounce from "debounce";
 // Connects to data-controller="autosubmit"
 export default class extends Controller {
   initialize() {
-    this.submit = debounce(this.submit.bind(this), 500)
+    this.submit = debounce(this.submit.bind(this), 400)
   }
 
   submit(e) {
