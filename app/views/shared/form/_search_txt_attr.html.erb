@@ -1,4 +1,5 @@
 <% autofocus ||= false %>
+<% tabndx ||= 0 %>
 
 <div class="mb-0">
   <%= f.label element, class: "search-label" %>
@@ -6,5 +7,6 @@
         value: params[element],
         class: 'search-txt-field ring',
         autofocus: autofocus,
+        tabindex: tabndx,
         data: { action: "autosubmit#submit" } %>
 </div>

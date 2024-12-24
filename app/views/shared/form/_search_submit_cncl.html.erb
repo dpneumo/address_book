@@ -1,13 +1,13 @@
 <% subtxt ||= "Search" %>
 <% cncltxt ||= "Clear" %>
-<% subtabindex ||= 0 %>
-<% cncltabindex ||= -1 %>
+<% subtabndx ||= 0 %>
+<% cncltabndx ||= -1 %>
 <% btnid ||= "filterBtn" %>
 <% subhidden ||= false %>
 
 
 <div class="flex <%= subhidden ? "justify-right" : "justify-between" %> py-3">
-  <%= f.submit( subtxt, class: "search-button", id: btnid, tabindex: subtabindex, hidden: subhidden ) %>
+  <%= f.submit( subtxt, class: "search-button", id: btnid, tabindex: subtabndx, hidden: subhidden ) %>
 
-  <%= link_to cncltxt, cnclpath, class: "mx-2 search_link link-hover", tabindex: cncltabindex %>
+  <%= link_to cncltxt, cnclpath, class: "mx-2 search_link link-hover", tabindex: cncltabndx %>
 </div>

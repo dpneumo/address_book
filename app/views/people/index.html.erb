@@ -15,16 +15,17 @@
                     method: :get,
                     data: { controller: "autosubmit" } do |f| %>
         <div class="grid grid-cols-3 gap-x-4 mb-4">
-          <%= render 'shared/form/search_txt_attr', f: f, element: :lastname_starts_with, autofocus: true %>
-          <%= render 'shared/form/search_txt_attr', f: f, element: :addressee_contains %>
-          <div>
-            <%= render 'shared/form/search_cncl', f: f, cnclpath: people_path %>
-          </div>
+          <%= render 'shared/form/search_txt_attr', f: f, element: :lastname_starts_with, tabndx: 1, autofocus: true %>
+          <%= render 'shared/form/search_txt_attr', f: f, element: :city_contains, tabndx: 3 %>
+          <%= render 'shared/form/search_txt_attr', f: f, element: :zip_is, tabndx: 5 %>
 
-          <%= render 'shared/form/search_txt_attr', f: f, element: :city_contains %>
+          <%= render 'shared/form/search_txt_attr', f: f, element: :addressee_contains, tabndx: 2 %>
           <%= render 'shared/form/search_select', f: f, element: :state_is,
-                          collection: Person::Query.state_select_opts %>
-          <%= render 'shared/form/search_txt_attr', f: f, element: :zip_is %>
+                          collection: Person::Query.state_select_opts,
+                          tabndx: 4 %>
+          <div>
+            <%= render 'shared/form/search_cncl', f: f, cnclpath: people_path, tabndx: 6 %>
+          </div>
         </div>
       <% end %>
     </div>
