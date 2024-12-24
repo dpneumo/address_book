@@ -3,7 +3,6 @@ class PeopleController < ApplicationController
 
   # GET /people
   def index
-    puts query_params
     @query = Person::Query.new(query_params)
     @people = @query.results
 
