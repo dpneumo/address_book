@@ -215,6 +215,9 @@
 # See https://ddnexus.github.io/pagy/docs/extras/i18n
 # require 'pagy/extras/i18n'
 
+# Make pagination links navigate inside turbo frame by default.
+# Required to preserve filtered records while shifting from page to page
+Pagy::DEFAULT[:link_extra] = 'data-turbo-frame="_self"'
 
 # When you are done setting your own default freeze it, so it will not get changed accidentally
 Pagy::DEFAULT.freeze

@@ -26,12 +26,14 @@
       <% end %>
     </div>
 
-    <%= turbo_frame_tag "people", class: "min-w-full" do %>
-      <%= render "shared/table", collection: @people, head: 'head', item_row: 'row' %>
-    <% end %>
+    <%= turbo_frame_tag "people",
+          target: "_top", autoscroll: true, data:{turbo_action: "advance"},
+          class: "min-w-full" do %>
 
-    <br>
-    <%== pagy_nav(@pagy) if @pagy.pages > 1 %>
+      <%= render "shared/table", collection: @people, head: 'head', item_row: 'row' %>
+
+      <%== pagy_nav(@pagy) if @pagy.pages > 1 %>
+    <% end %>
 
     <hr class="mt-1 border-1 border-gray-700" />
     <br>
