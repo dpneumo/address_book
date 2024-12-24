@@ -3,9 +3,11 @@
 <% subtabindex ||= 0 %>
 <% cncltabindex ||= -1 %>
 <% btnid ||= "filterBtn" %>
+<% subhidden ||= false %>
 
-<div class="flex justify-between py-3">
-  <%= form.submit( subtxt, class: "search-button", id: btnid, tabindex: subtabindex ) %>
+
+<div class="flex <%= subhidden ? "justify-right" : "justify-between" %> py-3">
+  <%= f.submit( subtxt, class: "search-button", id: btnid, tabindex: subtabindex, hidden: subhidden ) %>
 
   <%= link_to cncltxt, cnclpath, class: "mx-2 search_link link-hover", tabindex: cncltabindex %>
 </div>

@@ -67,3 +67,4 @@ class Person::Query
         Person.sanitize_sql_like(parm)
       end
 end
+

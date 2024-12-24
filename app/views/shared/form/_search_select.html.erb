@@ -4,8 +4,8 @@
 <% selected ||= '' %>
 
 <div class="mb-0">
-    <%= form.label element, class: "search-label" %>
-    <%= form.select( element, collection,
+    <%= f.label element, class: "search-label" %>
+    <%= f.select( element, collection,
             { include_blank: include_blank,
               selected: selected,
               autofocus: autofocus,

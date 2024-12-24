@@ -13,15 +13,18 @@
                     scope: :query,
                     url: people_path,
                     method: :get,
-                    data: { controller: "autosubmit" } do |form| %>
+                    data: { controller: "autosubmit" } do |f| %>
         <div class="grid grid-cols-3 gap-x-4 mb-4">
-          <%= render 'shared/form/search_txt_attr', form: form, element: :lastname_starts_with, autofocus: true %>
-          <%= render 'shared/form/search_txt_attr', form: form, element: :addressee_contains %>
-          <%= render 'shared/form/search_submit_cncl', form: form, cnclpath: people_path %>
-          <%= render 'shared/form/search_txt_attr', form: form, element: :city_contains %>
-          <%= render 'shared/form/search_select', form: form, element: :state_is,
+          <%= render 'shared/form/search_txt_attr', f: f, element: :lastname_starts_with, autofocus: true %>
+          <%= render 'shared/form/search_txt_attr', f: f, element: :addressee_contains %>
+          <div>
+            <%= render 'shared/form/search_cncl', f: f, cnclpath: people_path %>
+          </div>
+
+          <%= render 'shared/form/search_txt_attr', f: f, element: :city_contains %>
+          <%= render 'shared/form/search_select', f: f, element: :state_is,
                           collection: Person::Query.state_select_opts %>
-          <%= render 'shared/form/search_txt_attr', form: form, element: :zip_is %>
+          <%= render 'shared/form/search_txt_attr', f: f, element: :zip_is %>
         </div>
       <% end %>
     </div>

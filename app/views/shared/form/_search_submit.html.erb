@@ -1,7 +1,7 @@
 <% subtxt ||= "Search" %>
-<% tabindex ||= -1 %>
+<% subtabindex ||= 0 %>
 
-<div class="mt-2 w-fit">
-  <%= form.submit( subtxt, class: "search-button", tabindex: tabindex ) %>
+<div class="justify-self-center w-max">
+  <%= f.submit( subtxt, class: "search-button", subtabindex: tabindex ) %>
 </div>
 
