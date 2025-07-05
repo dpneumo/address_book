@@ -77,10 +77,14 @@ GEM
     ast (2.4.2)
     base64 (0.2.0)
     bcrypt_pbkdf (1.1.1)
+    bcrypt_pbkdf (1.1.1-arm64-darwin)
+    bcrypt_pbkdf (1.1.1-x86_64-darwin)
     benchmark (0.4.0)
+    bigdecimal (3.1.9)
     bindex (0.8.1)
     bootsnap (1.18.4)
       msgpack (~> 1.2)
+    brakeman (7.0.0)
       racc
     builder (3.3.0)
     capybara (3.40.0)
@@ -97,6 +101,10 @@ GEM
     debug (1.10.0)
       irb (~> 1.10)
       reline (>= 0.3.8)
+<<<<<<< Updated upstream
+=======
+    dotenv (3.1.7)
+>>>>>>> Stashed changes
     drb (2.2.1)
     ed25519 (1.3.0)
     erubi (1.13.1)
@@ -118,6 +126,10 @@ GEM
     jbuilder (2.13.0)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+<<<<<<< Updated upstream
+=======
+    json (2.9.1)
+>>>>>>> Stashed changes
     kamal (2.4.0)
       activesupport (>= 7.0)
       base64 (~> 0.2)
@@ -130,6 +142,10 @@ GEM
       thor (~> 1.3)
       zeitwerk (>= 2.6.18, < 3.0)
     language_server-protocol (3.17.0.3)
+<<<<<<< Updated upstream
+=======
+    logger (1.6.4)
+>>>>>>> Stashed changes
     loofah (2.24.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -142,6 +158,10 @@ GEM
     matrix (0.4.2)
     mini_mime (1.1.5)
     msgpack (1.7.5)
+<<<<<<< Updated upstream
+=======
+    net-imap (0.5.4)
+>>>>>>> Stashed changes
       date
       net-protocol
     net-pop (0.1.2)
@@ -156,6 +176,7 @@ GEM
       net-protocol
     net-ssh (7.3.0)
     nio4r (2.7.4)
+<<<<<<< Updated upstream
     nokogiri (1.18.4-aarch64-linux-gnu)
       racc (~> 1.4)
     nokogiri (1.18.4-aarch64-linux-musl)
@@ -171,6 +192,23 @@ GEM
     nokogiri (1.18.4-x86_64-linux-gnu)
       racc (~> 1.4)
     nokogiri (1.18.4-x86_64-linux-musl)
+=======
+    nokogiri (1.18.1-aarch64-linux-gnu)
+      racc (~> 1.4)
+    nokogiri (1.18.1-aarch64-linux-musl)
+      racc (~> 1.4)
+    nokogiri (1.18.1-arm-linux-gnu)
+      racc (~> 1.4)
+    nokogiri (1.18.1-arm-linux-musl)
+      racc (~> 1.4)
+    nokogiri (1.18.1-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.18.1-x86_64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.18.1-x86_64-linux-gnu)
+      racc (~> 1.4)
+    nokogiri (1.18.1-x86_64-linux-musl)
+>>>>>>> Stashed changes
       racc (~> 1.4)
     ostruct (0.6.1)
     pagy (9.3.3)
@@ -232,10 +270,18 @@ GEM
     rainbow (3.1.1)
     rake (13.2.1)
       psych (>= 4.0.0)
+<<<<<<< Updated upstream
     reline (0.6.0)
       io-console (~> 0.5)
     rexml (3.4.1)
     rubocop (1.69.1)
+=======
+    regexp_parser (2.10.0)
+    reline (0.6.0)
+      io-console (~> 0.5)
+    rexml (3.4.0)
+    rubocop (1.69.2)
+>>>>>>> Stashed changes
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
       parallel (~> 1.10)
@@ -245,6 +291,10 @@ GEM
       rubocop-ast (>= 1.36.2, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 4.0)
+<<<<<<< Updated upstream
+=======
+    rubocop-ast (1.37.0)
+>>>>>>> Stashed changes
       parser (>= 3.3.1.0)
     rubocop-minitest (0.36.0)
       rubocop (>= 1.61, < 2.0)
@@ -252,6 +302,10 @@ GEM
     rubocop-performance (1.23.0)
       rubocop (>= 1.48.1, < 2.0)
       rubocop-ast (>= 1.31.1, < 2.0)
+<<<<<<< Updated upstream
+=======
+    rubocop-rails (2.28.0)
+>>>>>>> Stashed changes
       activesupport (>= 4.2.0)
       rack (>= 1.1)
       rubocop (>= 1.52.0, < 2.0)
@@ -275,13 +329,25 @@ GEM
       activejob (>= 7.2)
       activerecord (>= 7.2)
       railties (>= 7.2)
+<<<<<<< Updated upstream
     solid_queue (1.1.4)
+=======
+    solid_queue (1.1.2)
+>>>>>>> Stashed changes
       activejob (>= 7.1)
       activerecord (>= 7.1)
       concurrent-ruby (>= 1.3.1)
       fugit (~> 1.11.0)
       railties (>= 7.1)
       thor (~> 1.3.1)
+    sqlite3 (2.5.0-aarch64-linux-gnu)
+    sqlite3 (2.5.0-aarch64-linux-musl)
+    sqlite3 (2.5.0-arm-linux-gnu)
+    sqlite3 (2.5.0-arm-linux-musl)
+    sqlite3 (2.5.0-arm64-darwin)
+    sqlite3 (2.5.0-x86_64-darwin)
+    sqlite3 (2.5.0-x86_64-linux-gnu)
+    sqlite3 (2.5.0-x86_64-linux-musl)
     sshkit (1.23.2)
       base64
       net-scp (>= 1.1.2)
@@ -290,12 +356,27 @@ GEM
       ostruct
     stimulus-rails (1.3.4)
       railties (>= 6.0.0)
+<<<<<<< Updated upstream
+=======
+    stringio (3.1.2)
+    tailwindcss-rails (3.1.0)
+      railties (>= 7.0.0)
+      tailwindcss-ruby
+>>>>>>> Stashed changes
     tailwindcss-ruby (3.4.17-aarch64-linux)
     tailwindcss-ruby (3.4.17-arm-linux)
     tailwindcss-ruby (3.4.17-arm64-darwin)
     tailwindcss-ruby (3.4.17-x86_64-darwin)
     tailwindcss-ruby (3.4.17-x86_64-linux)
     thor (1.3.2)
+<<<<<<< Updated upstream
+=======
+    thruster (0.1.9)
+    thruster (0.1.9-aarch64-linux)
+    thruster (0.1.9-arm64-darwin)
+    thruster (0.1.9-x86_64-darwin)
+    thruster (0.1.9-x86_64-linux)
+>>>>>>> Stashed changes
     timeout (0.4.3)
     ttfunk (1.8.0)
       bigdecimal (~> 3.1)
@@ -304,6 +385,10 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+<<<<<<< Updated upstream
+=======
+    unicode-display_width (3.1.3)
+>>>>>>> Stashed changes
       unicode-emoji (~> 4.0, >= 4.0.4)
     unicode-emoji (4.0.4)
     useragent (0.16.11)
@@ -319,6 +404,17 @@ GEM
       nokogiri (~> 1.8)
 
 PLATFORMS
+<<<<<<< Updated upstream
+=======
+  aarch64-linux
+  aarch64-linux-gnu
+  aarch64-linux-musl
+  arm-linux
+  arm-linux-gnu
+  arm-linux-musl
+  arm64-darwin
+  x86_64-darwin
+>>>>>>> Stashed changes
   x86_64-linux-gnu
   x86_64-linux-musl
 
