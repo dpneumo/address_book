@@ -39,5 +39,3 @@
 /config/credentials/production.key
 
 /.kamal/secrets
-
-/Gemfile.lock
