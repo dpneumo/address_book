@@ -6,7 +6,7 @@ class PeopleController < ApplicationController
     @query = Person::Query.new(query_params)
     @people = @query.results
 
-    @pagy, @people = pagy(@people.order(:lastname, :addressee), limit: 10, size: 7)
+    @pagy, @people = pagy(@people.order(sort_order), limit: 10, size: 7)
   end
 
   # GET /people/1
@@ -55,12 +55,29 @@ class PeopleController < ApplicationController
       @person = Person.find(params.expect(:id))
     end
 
+    def sort_order
+      case params[:sort]
+      when "name"
+        [ :lastname, :addressee ]
+      when "email"
+        [ :email ]
+      when "phone"
+        [ :phone ]
+      when "preferred"
+        [ :pref_method ]
+      when "status"
+        [ :status ]
+      else
+        [ :lastname, :addressee ]
+      end
+    end
+
     # Only allow a list of trusted parameters through.
     def person_params
-      params.expect(person: [ :addressee, :lastname, :street, :city, :state, :zip, :note ])
+      params.expect(person: [ :addressee, :lastname, :street, :city, :state, :zip, :note, :email, :phone, :pref_method, :status ])
     end
 
     def query_params
-      params.fetch(:query, {}).permit(:addressee_contains, :lastname_starts_with, :city_contains, :state_is, :zip_is)
+      params.fetch(:query, {}).permit(:addressee_contains, :lastname_starts_with, :city_contains, :state_is, :zip_is, :email_is, :phone_is, :pref_method_is, :status_is)
     end
 end

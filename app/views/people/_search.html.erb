@@ -1,0 +1,29 @@
+<div id="search" class="bg-gray-50">
+  <%= form_with model: @query,
+                scope: :query,
+                url: people_path,
+                method: :get,
+                data: { controller: "autosubmit" } do |f| %>
+    <div class="grid grid-cols-5 gap-x-4 mb-4">
+      <%= render 'shared/form/search_txt_attr', f: f, element: :lastname_starts_with, tabndx: 1, autofocus: true %>
+      <%= render 'shared/form/search_txt_attr', f: f, element: :addressee_contains, tabndx: 2 %>
+      <%= render 'shared/form/search_txt_attr', f: f, element: :city_contains, tabndx: 3 %>
+      <%= render 'shared/form/search_select', f: f, element: :state_is,
+                      collection: Person::Query.state_select_opts,
+                      tabndx: 4 %>
+
+      <%= render 'shared/form/search_txt_attr', f: f, element: :zip_is, tabndx: 5 %>
+      <%= render 'shared/form/search_txt_attr', f: f, element: :email_is, tabndx: 6 %>
+      <%= render 'shared/form/search_txt_attr', f: f, element: :phone_is, tabndx: 7 %>
+      <%= render 'shared/form/search_select', f: f, element: :pref_method_is,
+                      collection: Person.contact_select_opts,
+                      tabndx: 8 %>
+      <%= render 'shared/form/search_select', f: f, element: :status_is,
+                      collection: Person.status_select_opts,
+                      tabndx: 9 %>
+      <div>
+        <%= render 'shared/form/search_cncl', f: f, cnclpath: people_path, tabndx: 10 %>
+      </div>
+    </div>
+  <% end %>
+</div>

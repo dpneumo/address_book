@@ -7,7 +7,7 @@ class Person < ApplicationRecord
   before_validation :titleize_data
   before_validation :upcase_state
 
-  validates :addressee, :lastname, :street, :city, :state, :zip, presence: true
+  validates :addressee, :lastname, :street, :city, :state, :zip, :status, presence: true
   validates :state, inclusion: { in: state_abbreviations, message: "%{value} is not a valid state code" }
 
   def fullname
@@ -21,7 +21,7 @@ class Person < ApplicationRecord
 
   def complete_address_hint
     ca = complete_address
-    ca.length > 20 ? ca.slice(0..19)+'...' : ca
+    ca.length > 20 ? ca.slice(0..19)+"..." : ca
   end
 
   def label_csz
@@ -29,8 +29,16 @@ class Person < ApplicationRecord
   end
 
   def note_hint
-    return '' unless note
-    note.length > 15 ? note.slice(0..14)+'...' : note
+    return "" unless note
+    note.length > 15 ? note.slice(0..14)+"..." : note
+  end
+
+  def self.contact_select_opts
+    [ [ "email", "email" ], [ "phone", "phone" ], [ "snail mail", "mail" ] ]
+  end
+
+  def self.status_select_opts
+    [ [ "contacted", "contacted" ], [ "uncontacted", "uncontacted" ], [ "do not contact", "do_not_contact" ] ]
   end
 
   private
@@ -42,7 +50,8 @@ class Person < ApplicationRecord
 
   def titleize_data
     changed.each do |name|
-      next if name == 'state'
+      puts "Changed attribute: #{name}\n\n"
+      next if [ "state", "email", "phone", "pref_method", "note", "status" ].include? name
       send("#{name}=", send(name).titleize) if send(name).respond_to?(:titleize)
     end
   end

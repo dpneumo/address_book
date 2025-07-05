@@ -1,7 +1,29 @@
 <tr>
-	<th scope="col" class="th-pad th-base">Name</th>
+	<th scope="col" class="th-pad th-base">
+	  <%= link_to "Name", { action: 'index', sort: 'name' }, { class: "mx-2 search_link link-hover" } %>
+	</th>
 
-	<th scope="col" class="th-pad th-base">Address</th>
+	<th scope="col" class="th-pad th-base">
+		Address
+	</th>
 
-	<th scope="col" class="th-pad th-base">Note</th>
+	<th scope="col" class="th-pad th-base">
+		<%= link_to "Email", { action: 'index', sort: 'email' }, { class: "mx-2 search_link link-hover" } %>
+	</th>
+
+	<th scope="col" class="th-pad th-base">
+	  <%= link_to "Phone", { action: 'index', sort: 'phone' }, { class: "mx-2 search_link link-hover" } %>
+	</th>
+
+	<th scope="col" class="th-pad th-base">
+		<%= link_to "Preferred", { action: 'index', sort: 'preferred' }, { class: "mx-2 search_link link-hover" } %>
+	</th>
+
+	<th scope="col" class="th-pad th-base">
+		<%= link_to "Status", { action: 'index', sort: 'status' }, { class: "mx-2 search_link link-hover" } %>
+	</th>
+
+	<th scope="col" class="th-pad th-base">
+	  Note
+	</th>
 </tr>

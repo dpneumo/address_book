@@ -3,6 +3,10 @@
       <%= link_to item.fullname, person_path(item), class: "td-emphasized link-hover" %>
     </td>
     <td class='td-pad td-base'><%= item.complete_address %></td>
+    <td class='td-pad td-base'><%= item.email %></td>
+    <td class='td-pad td-base'><%= item.phone %></td>
+    <td class='td-pad td-base'><%= item.pref_method %></td>
+    <td class='td-pad td-base'><%= item.status %></td>
     <td class='td-pad td-base'><%= item.note_hint %></td>
 </tr>
 
